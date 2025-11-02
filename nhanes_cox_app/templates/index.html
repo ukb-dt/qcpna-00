@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NHANES Cox App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold mb-8 text-center">NHANES Mortality Risk</h1>
+        <div class="grid grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-lg">
+                <h2 class="text-xl font-bold mb-4">Patient Profile</h2>
+                <div class="space-y-3">
+                    <div><label class="block text-sm">Age</label><input type="number" id="age" value="60" class="w-full border p-2 rounded"></div>
+                    <div><label class="block text-sm">Sex</label><select id="sex" class="w-full border p-2 rounded"><option>Male</option><option>Female</option></select></div>
+                    <div><label class="block text-sm">Race</label><select id="race" class="w-full border p-2 rounded"><option value="3">White</option><option value="4">Black</option></select></div>
+                    <div><label class="block text-sm">Diabetes</label><select id="dm" class="w-full border p-2 rounded"><option>No</option><option>Yes</option></select></div>
+                    <div><label class="block text-sm">Hypertension</label><select id="htn" class="w-full border p-2 rounded"><option>No</option><option>Yes</option></select></div>
+                    <div><label class="block text-sm">SBP (mmHg)</label><input type="number" id="sbp" value="130" class="w-full border p-2 rounded"></div>
+                    <div><label class="block text-sm">BMI</label><input type="number" id="bmi" value="28" class="w-full border p-2 rounded"></div>
+                    <div><label class="block text-sm">uACR (mg/g)</label><input type="number" id="uacr" value="10" class="w-full border p-2 rounded"></div>
+                    <div><label class="block text-sm">eGFR</label><input type="number" id="egfr" value="90" class="w-full border p-2 rounded"></div>
+                    <div><label class="block text-sm">Smoking</label><select id="smoking" class="w-full border p-2 rounded"><option>No</option><option>Yes</option></select></div>
+                    <button onclick="generate()" class="w-full bg-blue-600 text-white py-2 rounded mt-4">Generate</button>
+                </div>
+            </div>
+            <div class="col-span-2 bg-white p-6 rounded-lg">
+                <canvas id="chart" height="300"></canvas>
+                <div id="info" class="mt-4 text-sm text-gray-600"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let chart;
+        function generate() {
+            fetch('/generate_curve', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    age: document.getElementById('age').value,
+                    sex: document.getElementById('sex').value,
+                    race: document.getElementById('race').value,
+                    dm: document.getElementById('dm').value,
+                    htn: document.getElementById('htn').value,
+                    sbp: document.getElementById('sbp').value,
+                    uacr: document.getElementById('uacr').value,
+                    egfr: document.getElementById('egfr').value,
+                    bmi: document.getElementById('bmi').value,
+                    smoking: document.getElementById('smoking').value
+                })
+            })
+            .then(r => r.json())
+            .then(data => {
+                if(chart) chart.destroy();
+                chart = new Chart(document.getElementById('chart'), {
+                    type: 'line',
+                    data: {
+                        labels: data.times,
+                        datasets: [{
+                            label: 'No Treatment',
+                            data: data.cum_inc_no,
+                            borderColor: 'red',
+                            fill: false
+                        }, {
+                            label: 'With Treatment',
+                            data: data.cum_inc_yes,
+                            borderColor: 'green',
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {min: 0, max: 1}
+                        }
+                    }
+                });
+                document.getElementById('info').textContent = data.model_info;
+            })
+            .catch(e => alert('Error: ' + e));
+        }
+        generate();
+    </script>
+</body>
+</html>
+ 
