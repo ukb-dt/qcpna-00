@@ -16,9 +16,9 @@ Yebo
 
 We now have a **fully functional Render-hosted Flask app** serving NHANES survival curves straight from your repo.
 
-✅ **Start command confirmed:** `python nhanes_cox_app/app.py`
-✅ **Python pinned:** `.python-version`
-✅ **Render deployment live:** running at your assigned URL
+✅ **Start command confirmed:** `python nhanes_cox_app/app.py`           
+✅ **Python pinned:** `.python-version`                        
+✅ **Render deployment live:** running at your assigned URL             
 
 Now you can:
 
