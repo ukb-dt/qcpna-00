@@ -70,13 +70,6 @@ Each derivative and integral defines a *temporal interface* between modes of bei
 Render’s own behavior — spinning up, serving, idling — traces the same rhythm:
 energy → expression → feedback → restoration → reflection.
 
----
-
-Would you like me to go ahead and reformat this in Markdown and merge it into your README (right after the Pentad Table section)?
-
-
----
-
 ## 🧠 The Prototype (Signaling Layer)
 
 **Mode:** DOPAMINE → SEROTONIN  
