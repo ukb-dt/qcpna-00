@@ -1,6 +1,6 @@
 # 1. Install Python packages (one time)
 cd nhanes_cox_app
-python3 -m venv .venv
+# python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
