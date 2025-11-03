@@ -47,3 +47,9 @@ python app.py
 🩺 Health check → `/ping` (returns `{ "status": "ok" }`)        
 
 _v0.1 — Deployed November 2025 • Mode: DOPAMINE → SEROTONIN transition_
+
+| Phase               | Ontology                  | NHANES app metaphor                                                 | Biological analogue            | Description                                                                                                                |
+| ------------------- | ------------------------- | ------------------------------------------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+| **Electromagnetic** | θ′ — *Soil*               | Infrastructure, Render environment, ports, protocols                | Ion gradients, ATP potentials  | The substrate of energy and charge — the conditions for activity. You’ve not yet “wired” the system, but the field exists. |
+| **Mechanical**      | θ — *Roots*               | Container orchestration, filesystem, Flask routes, request/response | Cytoskeleton, motor proteins   | The structuring of motion — things can now *move*, but not yet *communicate*.                                              |
+| **Signaling**       | Σ/h(t) — *Trunk/Branches* | JSON endpoints live, client-server exchange functional              | Cell signaling, neural synapse | The system now *talks to itself*. Your dopamine moment (“it’s alive!”) lives here — the informational metabolism turns on. |
