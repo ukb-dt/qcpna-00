@@ -2,6 +2,8 @@
 - [ ] Mechanical  
 - [x] Signaling
 
+**NHANES Cox App** — a Flask-based survival model explorer deployed via Render, simulating or serving real hazard curves from NHANES 1999–2018.
+
 
 # 1
 It's worked. I can play with the toy on my iphone!! Yay! Proof of concept. Major dopamine hit
@@ -32,3 +34,16 @@ Now you can:
 * Add analytics or an about page right in `/templates/index.html`
 
 Want me to help you set up a lightweight **status/health route** (e.g. `/ping` returning JSON “ok”) or a **Render autoscaling rule** next?
+
+```sh
+# run locally
+git clone https://github.com/ukb-dt/ukb-app-00.git
+cd ukb-app-00/nhanes_cox_app
+pip install -r ../requirements.txt
+python app.py
+```
+
+🌐 Live demo → [ukb-app-00.onrender.com](https://ukb-app-00.onrender.com)            
+🩺 Health check → `/ping` (returns `{ "status": "ok" }`)        
+
+_v0.1 — Deployed November 2025 • Mode: DOPAMINE → SEROTONIN transition_
