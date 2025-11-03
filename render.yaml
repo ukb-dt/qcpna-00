@@ -2,7 +2,7 @@ services:
   - type: web
     name: ukb-app-00
     env: python
-    pythonVersion: 3.10.14
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: python nhanes_cox_app/app.py
-     
+    envVars:
+      PYTHON_VERSION: 3.10.14
