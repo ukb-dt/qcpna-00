@@ -1,55 +1,105 @@
-- [ ] Electromagnetic  
-- [ ] Mechanical  
-- [x] Signaling
+ 
+# 🧩 NHANES Cox App — Field Prototype v0.2
 
-**NHANES Cox App** — a Flask-based survival model explorer deployed via Render, simulating or serving real hazard curves from NHANES 1999–2018.
+> **System-builder’s log.**
+> A survival model explorer as a living signal test.  
+> Flask → Render → Response → Reflection.  
+> Proof of signaling, proof of concept, proof of coherence.
 
+This app — *ukb-app-00* — is the first live circuit: a working flask-based model environment that turns data into visible survival dynamics, then back into cognition via interface.  
+Running on [Render](https://ukb-app-00.onrender.com), it behaves like a **signaling organism**: spun up, responsive, metabolic, idling when inactive.
 
-# 1
-It's worked. I can play with the toy on my iphone!! Yay! Proof of concept. Major dopamine hit
+---
 
-# 2
-That’s glorious — the first spark of life in a system you built yourself!
-You just watched your code [traverse](https://en.wikipedia.org/wiki/Cell_signaling) half the planet, assemble in Render’s container orchestra, and start singing on your phone. That’s the little miracle every engineer chases: a private experiment suddenly *alive* in the public world.
+## ⚙️ The Field Phases (Pentad Table)
 
-Savor that dopamine hit — it’s the metabolic reward for curiosity embodied. Now that the toy runs, the real game begins: refining, instrumenting, scaling, letting it talk to more data or more people. Proof of concept is the neuron firing; now comes the synapse formation.
+| **Phase** | **Physics / Ontology** | **Engineering / Implementation** | **Grammar / Syntax** | **Prosody / Dynamics (Rates)** | **Metaphysics / Epistemology** |
+|------------|------------------------|----------------------------------|-----------------------|--------------------------------|--------------------------------|
+| **1. Electromagnetic** | Energy fields, charge differentials, latent potential | Server instance, Python runtime, ports open | Primitives — imports, constants | Power input, latency, spin-up | Being-as-field — conditions for expression |
+| **2. Mechanical** | Structure, motion, force, constraint | Container orchestration, Flask routes, request/response | Syntax — order, indentation, binding | Load, throughput, friction | Form-as-function — articulation of pattern |
+| **3. Signaling** | Transmission, coupling, interference, noise | JSON endpoints, render templates, API calls | Semantics — subject/predicate relations | Frequency, delay, signal/noise ratio | Communication-as-being — coherence across parts |
+| **4. Metabolic** | Transformation, flow, feedback, homeostasis | Model computation, joblib load, inference cycles | Pragmatics — context, action, response | Throughput, regeneration, efficiency | Systemic value — balancing work and waste |
+| **5. Cognitive** | Emergence, anticipation, intentionality | Monitoring, adaptation, self-reflection, UX layer | Meta-grammar — recursion, inference | Reflex latency, learning rate | Knowing-as-energy — awareness of its own rates |
 
-Keep that same experimental thrill — the “what if I just tried…” impulse — because that’s exactly how prototypes evolve into living systems.
+Each row is a **rate domain**.  
+Each column a **plane of articulation**.  
+Together they define the *operational calculus* of a living system — software as metabolism.
 
-# 3
-Yebo
+---
 
-🎉 Beautiful. That’s the sweet dopamine-serotonin transition right there — from “will it work?” to *“it’s alive.”*
+## 🧠 The Prototype (Signaling Layer)
 
-We now have a **fully functional Render-hosted Flask app** serving NHANES survival curves straight from your repo.
+**Mode:** DOPAMINE → SEROTONIN  
+- *Dopamine Mode:* Simulated curves, synthetic hazard.
+- *Serotonin Mode:* Real NHANES 1999–2018 model (`cox_model.joblib`).
 
-✅ **Start command confirmed:** `python nhanes_cox_app/app.py`           
-✅ **Python pinned:** `.python-version`                        
-✅ **Render deployment live:** running at your assigned URL             
+**Architecture Flow**
+```
 
-Now you can:
+user → Flask UI → JSON POST → model.eval() → JSON return → Plot
 
-* Push new commits → auto-redeploy
-* Swap between DOPAMINE (simulated) and SEROTONIN (real model) modes by including or omitting `cox_model.joblib`
-* Add analytics or an about page right in `/templates/index.html`
+````
 
-Want me to help you set up a lightweight **status/health route** (e.g. `/ping` returning JSON “ok”) or a **Render autoscaling rule** next?
+If the model is absent, a simulation engine generates synthetic risk curves.  
+If the model is present, it computes real survival trajectories.  
+In both cases, a message passes, energy transfers, and cognition occurs.
 
-```sh
-# run locally
+---
+
+## 🧪 Run Protocol
+
+Local test:
+```bash
 git clone https://github.com/ukb-dt/ukb-app-00.git
 cd ukb-app-00/nhanes_cox_app
 pip install -r ../requirements.txt
 python app.py
+````
+
+Render deploy (`render.yaml`):
+
+```yaml
+services:
+  - type: web
+    name: ukb-app-00
+    env: python
+    pythonVersion: 3.10.14
+    buildCommand: pip install -r requirements.txt
+    startCommand: python nhanes_cox_app/app.py
 ```
 
-🌐 Live demo → [ukb-app-00.onrender.com](https://ukb-app-00.onrender.com)            
-🩺 Health check → `/ping` (returns `{ "status": "ok" }`)        
+Visit: **[ukb-app-00.onrender.com](https://ukb-app-00.onrender.com)**
+→ responds within 50–60s if cold (Render free-tier idle spin-up).
 
-_v0.1 — Deployed November 2025 • Mode: DOPAMINE → SEROTONIN transition_
+---
 
-| Phase               | Ontology                  | NHANES app metaphor                                                 | Biological analogue            | Description                                                                                                                |
-| ------------------- | ------------------------- | ------------------------------------------------------------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| **Electromagnetic** | θ′ — *Soil*               | Infrastructure, Render environment, ports, protocols                | Ion gradients, ATP potentials  | The substrate of energy and charge — the conditions for activity. You’ve not yet “wired” the system, but the field exists. |
-| **Mechanical**      | θ — *Roots*               | Container orchestration, filesystem, Flask routes, request/response | Cytoskeleton, motor proteins   | The structuring of motion — things can now *move*, but not yet *communicate*.                                              |
-| **Signaling**       | Σ/h(t) — *Trunk/Branches* | JSON endpoints live, client-server exchange functional              | Cell signaling, neural synapse | The system now *talks to itself*. Your dopamine moment (“it’s alive!”) lives here — the informational metabolism turns on. |
+## 🌱 Next Iteration
+
+| Layer           | Target               | Function                                  |
+| --------------- | -------------------- | ----------------------------------------- |
+| Signaling       | `/ping` endpoint     | Health-check JSON: `{ "status": "ok" }`   |
+| Metabolic       | Model energy monitor | Track inference time / power draw         |
+| Cognitive       | UI reflection        | Show real vs. simulated feedback visually |
+| Mechanical      | CI/CD refinement     | Auto-deploy on commit                     |
+| Electromagnetic | Instance upgrade     | Remove cold start delay                   |
+
+---
+
+## 🜂 Meta-Reflection
+
+This repo is a *living organism in miniature*.
+Every successful deployment closes a loop between energy, structure, signal, metabolism, and cognition.
+It is both a Flask app and an epistemic experiment — an embodied question:
+
+> *Can code metabolize?*
+> *Can a system learn to know its own rates?*
+
+That’s the core inquiry — and the calculus continues.
+
+---
+
+*v0.2 — November 2025*
+**Mode:** Signaling ↔ Metabolic transition
+**Author:** Ukubona LLC
+
+ 
