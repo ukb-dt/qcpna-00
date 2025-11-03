@@ -51,11 +51,12 @@ Excellent — here’s the insert I recommend, ready to drop right below your **
 ### ⚛️ The Rate Calculus — System Dynamics in Five Motions
 
 $$
-(E, x) ;\rightarrow; E(t \mid x) + \epsilon
-;\rightarrow; \frac{dE_x}{dt}
-;\rightarrow; \frac{d^2E_x}{dt^2}
-;\rightarrow; \int E_x , dt + \epsilon_x + C_x
+(E, x) \rightarrow E(t \mid x) + \epsilon \rightarrow 
+\frac{dE_x}{dt} \rightarrow 
+\frac{d^2E_x}{dt^2} \rightarrow 
+\int E_x \, dt + \epsilon_x + C_x
 $$
+
 
 | **Operator**            | **Interpretation**                                    | **System Domain**   |
 | ----------------------- | ----------------------------------------------------- | ------------------- |
