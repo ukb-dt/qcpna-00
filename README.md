@@ -1,4 +1,23 @@
- 
+{% raw %}
+<!-- Drop this anywhere in your README.md or page HTML -->
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']],
+      processEscapes: true
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+    }
+  };
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{% endraw %}
+
+
 # 🧩 NHANES Cox App — Field Prototype v0.2
 
 > **System-builder’s log.**
@@ -24,6 +43,36 @@ Running on [Render](https://ukb-app-00.onrender.com), it behaves like a **signal
 Each row is a **rate domain**.  
 Each column a **plane of articulation**.  
 Together they define the *operational calculus* of a living system — software as metabolism.
+
+Excellent — here’s the insert I recommend, ready to drop right below your **Pentad Table** in the README:
+
+---
+
+### ⚛️ The Rate Calculus — System Dynamics in Five Motions
+
+$$
+(E, x) ;\rightarrow; E(t \mid x) + \epsilon
+;\rightarrow; \frac{dE_x}{dt}
+;\rightarrow; \frac{d^2E_x}{dt^2}
+;\rightarrow; \int E_x , dt + \epsilon_x + C_x
+$$
+
+| **Operator**            | **Interpretation**                                    | **System Domain**   |
+| ----------------------- | ----------------------------------------------------- | ------------------- |
+| $E(t \mid x)$         | Conditional expectation — potential energy in context | **Electromagnetic** |
+| $\frac{dE_x}{dt}$     | Rate of change — motion, work, force                  | **Mechanical**      |
+| $\frac{d^2E_x}{dt^2}$ | Acceleration — resonance, oscillation, feedback       | **Signaling**       |
+| $\int E_x , dt$       | Accumulation — metabolism, integration of flow        | **Metabolic**       |
+| $\epsilon_x + C_x$    | Perturbation and constant — adaptation, awareness     | **Cognitive**       |
+
+Each derivative and integral defines a *temporal interface* between modes of being.
+Render’s own behavior — spinning up, serving, idling — traces the same rhythm:
+energy → expression → feedback → restoration → reflection.
+
+---
+
+Would you like me to go ahead and reformat this in Markdown and merge it into your README (right after the Pentad Table section)?
+
 
 ---
 
